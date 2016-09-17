@@ -8,16 +8,46 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script type="text/javascript">
-    $(document).ready(function(){ 
+    var allQuotes;
+    var quoteIndex;
+
+    function loadAQuote(direction=1) {
       $.get('quotes.txt', function(txtFile) {
-        var allQuotes = txtFile.trim().split("\n");
-        var randQuote = allQuotes[Math.floor(Math.random()*allQuotes.length)].split("--")
+
+        // Load quotes if we haven't yet
+        if (allQuotes == null) {
+          allQuotes = txtFile.trim().split("\n");
+          console.log(allQuotes);
+        }
+
+        // Set initial quote index
+        if (quoteIndex == null) {
+          quoteIndex = Math.floor(Math.random()*allQuotes.length); 
+        }
+
+        // Increment quote index
+        else {
+          quoteIndex = (quoteIndex + direction) % allQuotes.length;
+
+          if (quoteIndex < 0) {
+            quoteIndex = allQuotes.length - 1; 
+          }
+        }
+        console.log(quoteIndex);
+
+        // Get quote parts
+        var randQuote = allQuotes[quoteIndex].split("--")
         var quoteText = randQuote[0].trim();
         var quoteAuthor = randQuote[1].trim();
-        $('#quote_text').html(quoteText.replace(/\. /g, ".<br />"));
-        $('#quote_author').html("&mdash;" + quoteAuthor)
+
+        // Display quote
+        $('#quote_text').html(quoteText.replace(/\. /g, '.<br />'));
+        $('#quote_author').html('&mdash;' + quoteAuthor)
       });
-    });
+    }
+
+    // Load first quote
+    $(document).ready(loadAQuote);
   </script>
   <title>belm.info</title>
 </head>
@@ -25,6 +55,7 @@
   <div id="wrapper">
     <p id="quote_text"></p>
     <p id="quote_author"></p>
+    <a onclick="loadAQuote(-1)"><i title="Previous quote" class="fa fa-chevron-circle-left" aria-hidden="true"></i></a> <a onclick="loadAQuote(1)"><i title="Next quote" class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
     <div id="links">
       <ul>
         <li><a href="http://iambelmin.com"><i title="Blog" class="fa fa-home fa-2x"></i></a></li>
