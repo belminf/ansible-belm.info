@@ -25,23 +25,24 @@ p#quote_text {
   font-size: 2em;
   color: #fff;
   text-shadow: 2px 2px 2px #000;
-  margin: 0px;
+  margin: 0;
 }
 
 p#quote_author {
   font-family: 'Coming Soon', cursive;
   font-size: 1em;
   color: #fff;
-  margin: 0px 0 10px;
+  margin: 0;
 }
 
 
 div#links {
   width: 375px;
-  background-color: rgba(0, 0, 0, 0.75);
-  border: 1px solid #fff;
-  padding: 5px;
-  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid #999;
+  color: #d9d9d9;
+  padding: 10px 5px;
+  margin: 32px auto;
 }
 
 ul {
@@ -57,12 +58,12 @@ ul li {
 
 a {
   text-decoration: none;
-  color: white;
+  color: #d9d9d9;
 }
 
 a:hover,
 a:focus {
-  color: gray;
+  color: #fff;
 }
 
 p#email {
