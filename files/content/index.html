@@ -4,26 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans|Coming+Soon" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){ 
+      $.get('quotes.txt', function(txtFile) {
+        var allQuotes = txtFile.trim().split("\n");
+        var randQuote = allQuotes[Math.floor(Math.random()*allQuotes.length)].split("--")
+        var quoteText = randQuote[0].trim();
+        var quoteAuthor = randQuote[1].trim();
+        $('#quote_text').html(quoteText.replace(/\. /g, ".<br />"));
+        $('#quote_author').html("&mdash;" + quoteAuthor)
+      });
+    });
+  </script>
   <title>belm.info</title>
 </head>
 <body>
-  <div>
-    <ul>
-      <li><a href="http://iambelmin.com"><i title="Blog" class="fa fa-home fa-3x"></i></a></li>
-    <ul>
-    </ul>
-      <li><a href="http://linkedin.com/in/belminf"><i title="LinkedIn" class="fa fa-linkedin fa-3x"></i></a></li>
-      <li><a href="https://github.com/belminf"><i title="GitHub" class="fa fa-github fa-3x"></i></a></li>
-      <li><a href="http://stackexchange.com/users/197692/belmin-fernandez"><i title="StackExchange" class="fa fa-stack-overflow fa-3x"></i></a></li>
-    </ul>
-    <ul>
-      <li><a href="https://www.reddit.com/user/ec3sci/"><i title="Reddit" class="fa fa-reddit-alien fa-3x"></i></a></li>
-      <li><a href="https://www.goodreads.com/user/show/22667162-belmin-fernandez"><i title="Goodreads" class="fa fa-book fa-3x"></i></a></li>
-      <li><a href="http://www.amazon.com/wishlist/3IDARCJSVRVH9"><i title="Amazon Wishlist" class="fa fa-amazon fa-3x"></i></a></li>
-    </ul>
-    <p><a href="mailto:&#109;&#101;&#064;&#105;&#097;&#109;&#098;&#101;&#108;&#109;&#105;&#110;&#046;&#099;&#111;&#109;"><i title="E-mail" class="fa fa-envelope-o fa-fw"></i> &#109;&#101;&#064;&#105;&#097;&#109;&#098;&#101;&#108;&#109;&#105;&#110;&#046;&#099;&#111;&#109;</a></p>
+  <div id="wrapper">
+    <p id="quote_text"></p>
+    <p id="quote_author"></p>
+    <div id="links">
+      <ul>
+        <li><a href="http://iambelmin.com"><i title="Blog" class="fa fa-home fa-2x"></i></a></li>
+        <li><a href="http://linkedin.com/in/belminf"><i title="LinkedIn" class="fa fa-linkedin fa-2x"></i></a></li>
+        <li><a href="https://github.com/belminf"><i title="GitHub" class="fa fa-github fa-2x"></i></a></li>
+        <li><a href="http://stackexchange.com/users/197692/belmin-fernandez"><i title="StackExchange" class="fa fa-stack-overflow fa-2x"></i></a></li>
+        <li><a href="https://www.reddit.com/user/ec3sci/"><i title="Reddit" class="fa fa-reddit-alien fa-2x"></i></a></li>
+        <li><a href="https://www.goodreads.com/user/show/22667162-belmin-fernandez"><i title="Goodreads" class="fa fa-book fa-2x"></i></a></li>
+        <li><a href="http://www.amazon.com/wishlist/3IDARCJSVRVH9"><i title="Amazon Wishlist" class="fa fa-amazon fa-2x"></i></a></li>
+      </ul>
+      <p id="email"><a href="mailto:&#109;&#101;&#064;&#105;&#097;&#109;&#098;&#101;&#108;&#109;&#105;&#110;&#046;&#099;&#111;&#109;"><i title="E-mail" class="fa fa-envelope-o fa-fw"></i> &#109;&#101;&#064;&#105;&#097;&#109;&#098;&#101;&#108;&#109;&#105;&#110;&#046;&#099;&#111;&#109;</a></p>
+    </div>
   </div>
 </body>
 </html>
