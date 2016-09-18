@@ -35,6 +35,10 @@ p#quote_author {
   margin: 0;
 }
 
+p#quote_nav {
+  margin: 0;
+  cursor: pointer;
+}
 
 div#links {
   width: 375px;
