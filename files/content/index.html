@@ -54,11 +54,12 @@
 </head>
 <body>
   <div id="wrapper">
-    <p id="quote_text"></p>
-    <p id="quote_author"></p>
-    <p id="quote_nav">    
-      <a onclick="loadAQuote(-1)"><i title="Previous quote" class="fa fa-chevron-circle-left" aria-hidden="true"></i></a> <a onclick="loadAQuote(1)"><i title="Next quote" class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
-    </p>
+	<div id="quote">
+	  <a class="quote_nav" id="quote_prev" onclick="loadAQuote(-1)"><i title="Previous quote" class="fa fa-chevron-left fa-2x" aria-hidden="true"></i></a>
+	  <a class="quote_nav" id="quote_next" onclick="loadAQuote(1)"><i title="Next quote" class="fa fa-chevron-right fa-2x" aria-hidden="true"></i></a>
+	  <p class="quote_content" id="quote_text"></p>
+	  <p class="quote_content" id="quote_author"></p>
+	</div>
     <div id="links">
       <ul>
         <li><a href="http://iambelmin.com"><i title="Blog" class="fa fa-home fa-2x"></i></a></li>
