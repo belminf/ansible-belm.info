@@ -11,13 +11,15 @@
     var allQuotes;
     var quoteIndex;
 
-    function loadAQuote(direction=1) {
+    function loadAQuote(direction) {
+
+      direction = typeof direction !== 'undefined' ? direction : 1;
+
       $.get('quotes.txt', function(txtFile) {
 
         // Load quotes if we haven't yet
         if (allQuotes == null) {
           allQuotes = txtFile.trim().split("\n");
-          console.log(allQuotes);
         }
 
         // Set initial quote index
@@ -33,7 +35,6 @@
             quoteIndex = allQuotes.length - 1; 
           }
         }
-        console.log(quoteIndex);
 
         // Get quote parts
         var randQuote = allQuotes[quoteIndex].split("--")
