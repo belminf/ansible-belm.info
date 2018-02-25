@@ -69,7 +69,7 @@ body {
 /* links */
 #links {
   width: 375px;
-  border-top: 2px solid #fff;
+  border-top: 0;
   color: #d9d9d9;
   padding: 10px 0;
   margin: 32px auto;
@@ -97,5 +97,5 @@ a:focus {
 }
 
 #email {
-  margin: 2px 0 0;
+  margin: 10px 0 0;
 }
